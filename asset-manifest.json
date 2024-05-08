@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/kalai-sathappan/leave-management.git/static/css/main.cc0d1343.css",
+    "main.js": "/kalai-sathappan/leave-management.git/static/js/main.d85aa21e.js",
+    "static/js/787.394ed066.chunk.js": "/kalai-sathappan/leave-management.git/static/js/787.394ed066.chunk.js",
+    "index.html": "/kalai-sathappan/leave-management.git/index.html",
+    "main.cc0d1343.css.map": "/kalai-sathappan/leave-management.git/static/css/main.cc0d1343.css.map",
+    "main.d85aa21e.js.map": "/kalai-sathappan/leave-management.git/static/js/main.d85aa21e.js.map",
+    "787.394ed066.chunk.js.map": "/kalai-sathappan/leave-management.git/static/js/787.394ed066.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cc0d1343.css",
+    "static/js/main.d85aa21e.js"
+  ]
+}
