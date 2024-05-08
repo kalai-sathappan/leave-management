@@ -1,25 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import './App.css'
 
-function App() {
+const LeaveManagementSystem = () => {
+  const [leaveType, setLeaveType] = useState("casual");
+  const [leaveDays, setLeaveDays] = useState("");
+  const [leaveBalanceData, setLeaveBalanceData] = useState({
+    casual: 5,
+    medical: 5,
+  });
+
+  const handleLeaveTypeChange = (event) => {
+    setLeaveType(event.target.value);
+  };
+
+  const handleLeaveDaysChange = (event) => {
+    setLeaveDays(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const days = parseInt(leaveDays);
+    if (days > leaveBalanceData[leaveType]) {
+      alert("You don't have enough leave balance.");
+      return;
+    }
+    setLeaveBalanceData({
+      ...leaveBalanceData,
+      [leaveType]: leaveBalanceData[leaveType] - days,
+    });
+    setLeaveDays("");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Leave Management System</h1>
+      <div>
+        <h2>Leave Application</h2>
+        <form onSubmit={handleSubmit}>
+          <select value={leaveType} onChange={handleLeaveTypeChange}>
+            <option value="casual">Casual Leave</option>
+            <option value="medical">Medical Leave</option>
+          </select>
+          <input
+            type="number"
+            value={leaveDays}
+            onChange={handleLeaveDaysChange}
+            placeholder="No. of days"
+            required
+          />
+          <button type="submit">Apply Leave</button>
+        </form>
+      </div>
+      <div>
+        <h2>Leave Balance</h2>
+        <div>
+          Available {leaveType} Leaves: {leaveBalanceData[leaveType]}
+        </div>
+      </div>
     </div>
   );
-}
+};
 
-export default App;
+export default LeaveManagementSystem;
+
